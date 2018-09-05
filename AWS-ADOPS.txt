@@ -1,0 +1,28 @@
+Step-1: Create VPC
+
+ADOP-DevOps-VPC
+vpc-031f0c147f358227a
+
+Step-2: install docker:
+
+sudo yum update -y
+
+sudo yum install docker -y
+
+base=https://github.com/docker/machine/releases/download/v0.14.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+
+docker-machine version
+
+Step-3: Go to AWS IAM Console and create IAM User (Refer https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files)
+
+Download credentials.csv file or copy and paste the key id and access key.
+
+[ec2-user@ip-172-31-28-106 ~]$ aws configure --profile Krishna
+AWS Access Key ID [None]: AKIAIV7OMKEJ7GMDESSQ
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]: json
+
+./quickstart.sh -t aws -m ADOP-DEVOPS -c vpc-02389d534cfa38107 -r us-east-2 -z a -u docker-m -p DevOps@123 -a AKIAJZPIKZWDDADDPCZA -s v6Cdz6DxbJ4SBBXUL6+2FiOHInbKgymbelRVZK+W

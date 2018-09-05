@@ -1,0 +1,612 @@
+
+manoharkumarreddy14@DESKTOP-C98J1E5 MINGW64 ~/Downloads
+$ ssh -i "vpc.pem" ec2-user@ec2-54-172-75-221.compute-1.amazonaws.com
+
+
+[ec2-user@ip-172-31-94-244 ~]$ sudo yum update -y
+
+[ec2-user@ip-172-31-94-244 ~]$ sudo yum install git -y
+
+[ec2-user@ip-172-31-94-244 ~]$ git --version
+git version 2.13.6
+[ec2-user@ip-172-31-94-244 ~]$ git clone https://github.com/Accenture/adop-docker-compose.git
+
+[ec2-user@ip-172-31-94-244 ~]$ ll
+total 4
+drwxrwxr-x 12 ec2-user ec2-user 4096 Apr  3 08:19 adop-docker-compose
+[ec2-user@ip-172-31-94-244 ~]$ cd adop-docker-compose/
+
+[root@ip-172-31-94-244 ~]# curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` > ./docker-compose
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   617    0   617    0     0   3721      0 --:--:-- --:--:-- --:--:--  3739
+100 8648k  100 8648k    0     0  22.0M      0 --:--:-- --:--:-- --:--:-- 22.0M
+
+[root@ip-172-31-94-244 ~]# sudo mv ./docker-compose /usr/bin/docker-compose
+
+[root@ip-172-31-94-244 ~]# sudo chmod +x /usr/bin/docker-compose
+
+[root@ip-172-31-94-244 ~]# sudo yum -y install python-pip
+
+[root@ip-172-31-94-244 ~]# docker-compose --version
+docker-compose version 1.16.1, build 6d1ac21
+
+[ec2-user@ip-172-31-94-244 adop-docker-compose]$ ./quickstart.sh -t aws -m ADOPS-DEVOPS2 -c vpc-005bce0fa3d36a414 -r us-east-1 -z a -u venkat -p Forgot#1987 -a AKIAJVKDDU3R2HD5RNCA -s eWbEHyNcIFepCjXpudGKqb7PhrWcAyt+ezxbC2o6
+
+      ###    ########   #######  ########
+     ## ##   ##     ## ##     ## ##     ##
+    ##   ##  ##     ## ##     ## ##     ##
+   ##     ## ##     ## ##     ## ########
+   ######### ##     ## ##     ## ##
+   ##     ## ##     ## ##     ## ##
+   ##     ## ########   #######  ##
+
+
+*****************************************************
+*                  EVALUATION MODE                  *
+*****************************************************
+* Quickstart is designed to get you up and running  *
+* with the DevOps Platform as quickly as possible.  *
+* As such it is not a "production" ready deployment *
+* and therefore we brand it as "evaluation mode".   *
+* In using quickstart you are acknowledging this,   *
+* along with the lack of proper security, backups,  *
+* patching, and other operational considerations.   *
+*****************************************************
+
+Your AWS parameters file already exists, deleting it...
+Creating a new AWS variables file...
+Running pre-create checks...
+Creating machine...
+(ADOPS-DEVOPS2) Launching instance...
+Waiting for machine to be running, this may take a few minutes...
+Detecting operating system of created instance...
+Waiting for SSH to be available...
+Detecting the provisioner...
+Provisioning with ubuntu(systemd)...
+Installing Docker...
+Copying certs to the local machine directory...
+Copying certs to the remote machine...
+Setting Docker configuration on the remote daemon...
+Checking connection to Docker...
+Docker is up and running!
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env ADOPS-DEVOPS2
+
+          ###    ########   #######  ########
+         ## ##   ##     ## ##     ## ##     ##
+        ##   ##  ##     ## ##     ## ##     ##
+       ##     ## ##     ## ##     ## ########
+       ######### ##     ## ##     ## ##
+       ##     ## ##     ## ##     ## ##
+       ##     ## ########   #######  ##
+
+* Initialising ADOP
+Sourcing provider-specific environment files...
+Sourcing ./conf/provider/env.provider.aws.sh parameters file...
+Your secrets file already exists, will not re-create...
+Sourcing variables from platform.secrets.sh file...
+The version of your secrets file is up to date, moving on...
+* Setting up Docker Network
+Created Docker network: local_network
+* Pulling Docker Images
+Sourcing provider-specific environment files...
+Sourcing ./conf/provider/env.provider.aws.sh parameters file...
+Your secrets file already exists, will not re-create...
+Sourcing variables from platform.secrets.sh file...
+The version of your secrets file is up to date, moving on...
+Pulling elasticsearch (elasticsearch:2.1.1)...
+2.1.1: Pulling from library/elasticsearch
+03e1855d4f31: Pull complete
+a3ed95caeb02: Pull complete
+9269ba3950bb: Pull complete
+785ac756bcc8: Pull complete
+6fed5a9244a3: Pull complete
+cafd70c0e522: Pull complete
+58d01b4a63cc: Pull complete
+b9e1d590fa13: Pull complete
+a640017432b9: Pull complete
+9b65bdd93f26: Pull complete
+127973a59117: Pull complete
+9da06ced0821: Pull complete
+04b0bf774c36: Pull complete
+9309ca3f1ca0: Pull complete
+2bcc7ddd5a30: Pull complete
+d68b48d9197c: Pull complete
+Digest: sha256:686b5409bb280b177476964754dee65a8d4ae76dcf9914690d001fd394e7ba42
+Status: Downloaded newer image for elasticsearch:2.1.1
+Pulling logstash (accenture/adop-logstash:0.1.0)...
+0.1.0: Pulling from accenture/adop-logstash
+03e1855d4f31: Already exists
+a3ed95caeb02: Pull complete
+9269ba3950bb: Already exists
+785ac756bcc8: Already exists
+6fed5a9244a3: Already exists
+cafd70c0e522: Already exists
+58d01b4a63cc: Already exists
+b9e1d590fa13: Already exists
+46bd99f64bb6: Pull complete
+42e66e0a5f1f: Pull complete
+821a3062cd24: Pull complete
+c2b834fddbfc: Pull complete
+2be413a1d7c3: Pull complete
+ca9020f39198: Pull complete
+9e6fec39803b: Pull complete
+03b8b7dc7d81: Pull complete
+9598e55eafe8: Pull complete
+Digest: sha256:215746631f1e88c68cfc124846d773081b03ef46e11234f027a6b5854165f52a
+Status: Downloaded newer image for accenture/adop-logstash:0.1.0
+Pulling kibana (kibana:4.3.1)...
+4.3.1: Pulling from library/kibana
+03e1855d4f31: Already exists
+a3ed95caeb02: Pull complete
+34fa3037ce0f: Pull complete
+8e6e9a33dda3: Pull complete
+af5c6c0e7deb: Pull complete
+2162213f6d89: Pull complete
+3401d74b00d3: Pull complete
+0af4609177bb: Pull complete
+39376e664a52: Pull complete
+Digest: sha256:a46838c02553be07bdd7ef77eb14975e667e671aabe10f28d086b1c1ee3394f5
+Status: Downloaded newer image for kibana:4.3.1
+
+Pulling ldap-ltb (accenture/adop-ldap-ltb:0.1.0)...
+0.1.0: Pulling from accenture/adop-ldap-ltb
+759d6771041e: Pull complete
+8836b825667b: Pull complete
+c2f5e51744e6: Pull complete
+a3ed95caeb02: Pull complete
+b3136d379412: Pull complete
+cf2956c926ec: Pull complete
+0844a8d692df: Pull complete
+8eb44b323207: Pull complete
+45bbb52cec05: Pull complete
+f8d6639ff9f8: Pull complete
+16918041e571: Pull complete
+fa01998e87c5: Pull complete
+Digest: sha256:82523c240fe1c276094f3cec284e8510e6c053266aabceb84a76cf03b6297e0f
+Status: Downloaded newer image for accenture/adop-ldap-ltb:0.1.0
+Pulling nexus (accenture/adop-nexus:0.1.4)...
+0.1.4: Pulling from accenture/adop-nexus
+7b6bb4652a1b: Pull complete
+f295684138f4: Pull complete
+0683ddb8f6b3: Pull complete
+dcc13b449c3a: Pull complete
+35c5563f57e6: Pull complete
+44e58b590487: Pull complete
+35e590e2a56c: Pull complete
+4c7f9ca12575: Pull complete
+Digest: sha256:92ea8d782b23b44911800ceaf0bdf7234c55feba0c2ec9e89696ad3406dc92c6
+Status: Downloaded newer image for accenture/adop-nexus:0.1.4
+Pulling jenkins-slave (accenture/adop-jenkins-slave:0.1.4)...
+0.1.4: Pulling from accenture/adop-jenkins-slave
+a3ed95caeb02: Pull complete
+bc4d85eaf590: Pull complete
+b2c1956f7708: Pull complete
+3950359b47ba: Pull complete
+48703e6aa16c: Pull complete
+5d322b1e473b: Pull complete
+1fb874441c4d: Pull complete
+dc4a8dadfc39: Pull complete
+4cbed88c4295: Pull complete
+c2d1dd5000c7: Pull complete
+2a7747d4d49c: Pull complete
+Digest: sha256:5b6c0cbe299411a42e0eef0f303ef5585186e5411aa43761a69a07557ae51cc7
+Status: Downloaded newer image for accenture/adop-jenkins-slave:0.1.4
+Pulling gerrit-mysql (mysql:5.6.25)...
+5.6.25: Pulling from library/mysql
+70c964415e86: Pull complete
+a3ed95caeb02: Pull complete
+f3156b0a7c3e: Pull complete
+a9f3076c3654: Pull complete
+ef027411c533: Pull complete
+7b073684f04a: Pull complete
+f936d423a614: Pull complete
+25fdd7c5cfc4: Pull complete
+979bc46f4126: Pull complete
+Digest: sha256:47c62ff16fa535abe6c24844a0ce2b49b7d04e176422789fcf0d9fe566afbccb
+Status: Downloaded newer image for mysql:5.6.25
+Pulling ldap (accenture/adop-ldap:0.1.3)...
+0.1.3: Pulling from accenture/adop-ldap
+d4bce7fd68df: Pull complete
+a3ed95caeb02: Pull complete
+9a767fc1f547: Pull complete
+74c1a1230f77: Pull complete
+4299892031ce: Pull complete
+064d6b3f23d9: Pull complete
+545a23542643: Pull complete
+59e164870a90: Pull complete
+eed0ba3edbeb: Pull complete
+7dc5e01a8f35: Pull complete
+4895a31d5fef: Pull complete
+49828b26051b: Pull complete
+2a864ad0e091: Pull complete
+6e0e7803b6de: Pull complete
+Digest: sha256:2a88abc8bc5d2b2e50e11587820bd2133c447fa2f98b7149723dcd20be1ed183
+Status: Downloaded newer image for accenture/adop-ldap:0.1.3
+Pulling sensu-client (accenture/adop-sensu:0.2.0)...
+0.2.0: Pulling from accenture/adop-sensu
+43c265008fae: Pull complete
+cde43f86069b: Pull complete
+c7e3122ceda5: Pull complete
+f2f7a81746c2: Pull complete
+5d9c60f529b6: Pull complete
+c501fcff1d2c: Pull complete
+7d4c953f835d: Pull complete
+b2e0a765f606: Pull complete
+5ca8abee63af: Pull complete
+61bd11d9b284: Pull complete
+9e1164f96d7c: Pull complete
+2446b9d8613b: Pull complete
+c0287ec3219d: Pull complete
+683913946ead: Pull complete
+74c5c33e8b9a: Pull complete
+672c4f9ea2ef: Pull complete
+46d35de5556a: Pull complete
+eaa27d38767c: Pull complete
+Digest: sha256:765be0e74cb485e582e29f7a7f68cb8e065da50fa1f0279079757720c8216832
+Status: Downloaded newer image for accenture/adop-sensu:0.2.0
+Pulling sonar-mysql (mysql:5.6.25)...
+5.6.25: Pulling from library/mysql
+70c964415e86: Already exists
+a3ed95caeb02: Already exists
+f3156b0a7c3e: Already exists
+a9f3076c3654: Already exists
+ef027411c533: Already exists
+7b073684f04a: Already exists
+f936d423a614: Already exists
+25fdd7c5cfc4: Already exists
+979bc46f4126: Already exists
+Digest: sha256:47c62ff16fa535abe6c24844a0ce2b49b7d04e176422789fcf0d9fe566afbccb
+Status: Image is up to date for mysql:5.6.25
+Pulling sensu-api (accenture/adop-sensu:0.2.0)...
+0.2.0: Pulling from accenture/adop-sensu
+Digest: sha256:765be0e74cb485e582e29f7a7f68cb8e065da50fa1f0279079757720c8216832
+Status: Image is up to date for accenture/adop-sensu:0.2.0
+Pulling sonar (accenture/adop-sonar:0.3.5)...
+0.3.5: Pulling from accenture/adop-sonar
+386a066cd84a: Pull complete
+75ea84187083: Pull complete
+88b459c9f665: Pull complete
+690dbea0e4ca: Pull complete
+7e401cdd6f18: Pull complete
+a58186ddf9a0: Pull complete
+49999ed55bc4: Pull complete
+eb40561aad8f: Pull complete
+cea104543c1f: Pull complete
+a7da66dedd28: Pull complete
+ed4c4c94d519: Pull complete
+12f84c99ba66: Pull complete
+786b3d8fabd8: Pull complete
+45820664c047: Pull complete
+Digest: sha256:ab036bd5f80527910fed29955eb6b3cfc914ad681fd5f1c29d994fbced6f2f25
+Status: Downloaded newer image for accenture/adop-sonar:0.3.5
+Pulling selenium-hub (selenium/hub:2.53.0)...
+2.53.0: Pulling from selenium/hub
+cad964aed91d: Pull complete
+3a80a22fea63: Pull complete
+50de990d7957: Pull complete
+61e032b8f2cb: Pull complete
+9f03ce1741bf: Pull complete
+fbeea679a99b: Pull complete
+fb570799429a: Pull complete
+eae20523acb1: Pull complete
+a67b6012f3e0: Pull complete
+3a41ddda3c15: Pull complete
+61599f000734: Pull complete
+9949a8b75642: Pull complete
+c5c1813e8617: Pull complete
+Digest: sha256:951665c97454b64d23e5456fbcfcdfa3d43226f74ff1a96def8565c4c22babd7
+Status: Downloaded newer image for selenium/hub:2.53.0
+Pulling sensu-rabbitmq (rabbitmq:3.5.7-management)...
+3.5.7-management: Pulling from library/rabbitmq
+d4bce7fd68df: Already exists
+a3ed95caeb02: Pull complete
+c0330dd9a641: Pull complete
+55756666188f: Pull complete
+c14677369432: Pull complete
+26af78564017: Pull complete
+bd6129eb0c93: Pull complete
+5effe88cea3c: Pull complete
+c393a181c961: Pull complete
+76ed1a563002: Pull complete
+be99def8c8f1: Pull complete
+281661af86b4: Pull complete
+bc1e7dd06368: Pull complete
+4a321db4bb32: Pull complete
+c3ed9562f00a: Pull complete
+Digest: sha256:ceee535cb3ca8f24914d43583fd559887f01eaa9a6ef698791b47cc4097d0876
+Status: Downloaded newer image for rabbitmq:3.5.7-management
+Pulling selenium-node-chrome (selenium/node-chrome:2.53.0)...
+2.53.0: Pulling from selenium/node-chrome
+cad964aed91d: Already exists
+3a80a22fea63: Already exists
+50de990d7957: Already exists
+61e032b8f2cb: Already exists
+9f03ce1741bf: Already exists
+fbeea679a99b: Already exists
+fb570799429a: Already exists
+eae20523acb1: Already exists
+a67b6012f3e0: Already exists
+8e8cd675bac1: Pull complete
+41ee78787d3b: Pull complete
+c90228671973: Pull complete
+83a2dba40982: Pull complete
+39495276b4af: Pull complete
+004ccf94ee9b: Pull complete
+68fece444278: Pull complete
+7213cff7835a: Pull complete
+58b506a0a068: Pull complete
+Digest: sha256:ec2269e70a83239d196fcfb7c4eedc9c91c985ac687b245584988aa16f6d5bc8
+Status: Downloaded newer image for selenium/node-chrome:2.53.0
+Pulling registry (registry:2.5.1)...
+2.5.1: Pulling from library/registry
+b7f33cc0b48e: Pull complete
+46730e1e05c9: Pull complete
+b7574c100797: Pull complete
+2e5b74c7b611: Pull complete
+ba42bd458a59: Pull complete
+Digest: sha256:946480a23b33480b8e7cdb89b82c1bd6accae91a8e66d017e21e8b56551f6209
+Status: Downloaded newer image for registry:2.5.1
+Pulling sensu-redis (redis:3.0.7)...
+3.0.7: Pulling from library/redis
+f5cc0ee7a6f6: Pull complete
+5fc25ed18e87: Pull complete
+e025bc8872f6: Pull complete
+77c68b51b836: Pull complete
+7c403ece3755: Pull complete
+0a653bd338f4: Pull complete
+31531fd948c6: Pull complete
+Digest: sha256:730b765df9fe96af414da64a2b67f3a5f70b8fd13a31e5096fee4807ed802e20
+Status: Downloaded newer image for redis:3.0.7
+Pulling selenium-node-firefox (selenium/node-firefox:2.53.0)...
+2.53.0: Pulling from selenium/node-firefox
+cad964aed91d: Already exists
+3a80a22fea63: Already exists
+50de990d7957: Already exists
+61e032b8f2cb: Already exists
+9f03ce1741bf: Already exists
+fbeea679a99b: Already exists
+fb570799429a: Already exists
+eae20523acb1: Already exists
+a67b6012f3e0: Already exists
+8e8cd675bac1: Already exists
+41ee78787d3b: Already exists
+c90228671973: Already exists
+83a2dba40982: Already exists
+f6a754bc2675: Pull complete
+f13f961db352: Pull complete
+Digest: sha256:70a199119e8f74e0120ae1ce3dce89dc8f2289b71218e6fce45c9859a5522a88
+Status: Downloaded newer image for selenium/node-firefox:2.53.0
+Pulling sensu-uchiwa (sstarcher/uchiwa:0.15.0)...
+0.15.0: Pulling from sstarcher/uchiwa
+5c90d4a2d1a8: Pull complete
+66252ddc71ec: Pull complete
+f4daea31fd97: Pull complete
+f5875a7f211f: Pull complete
+3439b58b4b07: Pull complete
+a6f04a88aecd: Pull complete
+01ce224e0ccf: Pull complete
+Digest: sha256:873ab60018947fdea70f5fd76f40c35a785ff635eb570ae22b9fa53fe4600111
+Status: Downloaded newer image for sstarcher/uchiwa:0.15.0
+Pulling jenkins (accenture/adop-jenkins:0.2.6)...
+0.2.6: Pulling from accenture/adop-jenkins
+43c265008fae: Already exists
+af36d2c7a148: Pull complete
+143e9d501644: Pull complete
+bfc4cdbc8d81: Pull complete
+38c6fc3e9968: Pull complete
+0bfa8d5153bb: Pull complete
+05bc8d0fffca: Pull complete
+f1266a2a7ecb: Pull complete
+bed1feb9d144: Pull complete
+8805ae6b39b6: Pull complete
+6e0f1e929afc: Pull complete
+3b7391b587cf: Pull complete
+29252d05681d: Pull complete
+211819ba7a76: Pull complete
+c8a56abfd14e: Pull complete
+245ab500a84d: Pull complete
+273542adf912: Pull complete
+6f487a38817e: Pull complete
+6050467ea865: Pull complete
+7fa3d155bbab: Pull complete
+bf6e22439e69: Pull complete
+b4906bff462c: Pull complete
+9bcf87f75958: Pull complete
+53f28604c618: Pull complete
+c4e53b342b67: Pull complete
+dc7b183ff7eb: Pull complete
+99264606d7cd: Pull complete
+e0a5481ec903: Pull complete
+80dc04c755b3: Pull complete
+6a19ee6fd4b2: Pull complete
+Digest: sha256:10d295720ff78c0c3c37975c2db70d3b53de7a8b4f7742be554a78eb988517b6
+Status: Downloaded newer image for accenture/adop-jenkins:0.2.6
+Pulling ldap-phpadmin (accenture/adop-ldap-phpadmin:0.1.0)...
+0.1.0: Pulling from accenture/adop-ldap-phpadmin
+420890c9e918: Pull complete
+2ab5949b2e62: Pull complete
+f6f1c00db6f2: Pull complete
+d17ab2c6e55a: Pull complete
+0fae0f611eae: Pull complete
+078e1fc95fb5: Pull complete
+4fcbb701ae42: Pull complete
+48279087b188: Pull complete
+642967dd455a: Pull complete
+Digest: sha256:dfa694f012b47875861c0098244cdbd5af751a6c3fee3e11431af144c9139b7d
+Status: Downloaded newer image for accenture/adop-ldap-phpadmin:0.1.0
+Pulling proxy (accenture/adop-nginx:0.3.2)...
+0.3.2: Pulling from accenture/adop-nginx
+bae382666908: Pull complete
+29ede3c02ff2: Pull complete
+da4e69f33106: Pull complete
+8d43e5f5d27f: Pull complete
+b0de1abb17d6: Pull complete
+fb973479f12a: Pull complete
+d053684bcdd5: Pull complete
+d60d3155a0e6: Pull complete
+e231110a09e1: Pull complete
+561496f2b6f0: Pull complete
+96af94426a44: Pull complete
+442b06042387: Pull complete
+ff8ef5cc207d: Pull complete
+f08769fb6797: Pull complete
+ab41a7ae1ba3: Pull complete
+Digest: sha256:87467ef2d787d089199346d3b247a313a1ea89c521787379014c3d29b08191f6
+Status: Downloaded newer image for accenture/adop-nginx:0.3.2
+Pulling sensu-server (accenture/adop-sensu:0.2.0)...
+0.2.0: Pulling from accenture/adop-sensu
+Digest: sha256:765be0e74cb485e582e29f7a7f68cb8e065da50fa1f0279079757720c8216832
+Status: Image is up to date for accenture/adop-sensu:0.2.0
+Pulling gerrit (accenture/adop-gerrit:0.1.3)...
+0.1.3: Pulling from accenture/adop-gerrit
+43c265008fae: Already exists
+af36d2c7a148: Already exists
+2b7b4d10e1c1: Pull complete
+35dfd23791b5: Pull complete
+fa0aca12f0dd: Pull complete
+3ce048eeea25: Pull complete
+9f44e2abef54: Pull complete
+99c23e0df85a: Pull complete
+948508fb15d5: Pull complete
+3772dee7b104: Pull complete
+d926128b0d6d: Pull complete
+578266e28cbc: Pull complete
+edd352b92120: Pull complete
+6d7a16606d61: Pull complete
+c02a804c114d: Pull complete
+2ba34e525c2d: Pull complete
+0260c8e1cbcf: Pull complete
+1346569981f5: Pull complete
+Digest: sha256:ac556dd808f5f5754dd2603262450ace1267ac59f72d037ed16a36bf4808af93
+Status: Downloaded newer image for accenture/adop-gerrit:0.1.3
+* Bringing up ADOP...
+Sourcing provider-specific environment files...
+Sourcing ./conf/provider/env.provider.aws.sh parameters file...
+Your secrets file already exists, will not re-create...
+Sourcing variables from platform.secrets.sh file...
+The version of your secrets file is up to date, moving on...
+Creating elasticsearch ...
+Creating logstash ...
+Creating kibana ...
+Creating logstash
+Creating elasticsearch
+Creating logstash ... done
+
+Creating sonar ...
+Creating gerrit ...
+Creating gerrit-mysql ...
+Creating ldap ...
+Creating sonar-mysql ...
+Creating sonar
+Creating ldap-ltb ...
+Creating gerrit
+Creating ldap
+Creating nexus ...
+Creating gerrit-mysql
+Creating sensu-client ...
+Creating jenkins ...
+Creating registry ...
+Creating selenium-node-chrome ...
+Creating ldap-ltb
+Creating ldap-phpadmin ...
+Creating nexus
+Creating sensu-client
+Creating sensu-uchiwa ...
+Creating selenium-hub ...
+Creating jenkins-slave ...
+Creating selenium-node-chrome
+Creating sensu-rabbitmq ...
+Creating selenium-node-firefox ...
+Creating jenkins
+Creating proxy ...
+Creating sonar-mysql
+Creating selenium-hub
+Creating ldap-phpadmin
+Creating sensu-uchiwa
+Creating jenkins-slave
+Creating registry
+Creating sensu-server ...
+Creating selenium-node-firefox
+Creating sensu-rabbitmq
+Creating sensu-redis ...
+Creating sensu-api ...
+Creating proxy
+Creating sensu-server
+Creating sensu-redis
+Creating sensu-api ... done
+* Waiting for the Platform to become available - this can take a few minutes
+Jenkins was unavailable, so slept for: 30 secs
+Jenkins was unavailable, so slept for: 30 secs
+Jenkins was unavailable, so slept for: 30 secs
+* Loading the Platform
+Generating client certificates for TLS-enabled Engine
+/home/ec2-user/docker_certs/cert.pem was generated successfully...
+/home/ec2-user/docker_certs/ca.pem was generated successfully...
+/home/ec2-user/docker_certs/key.pem was generated successfully...
+Uploading certificates to Jenkins Slave at: //root/.docker/
+* Waiting for Nginx to become available
+Nginx was unavailable, so slept for: 5 secs
+
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+Nginx was unavailable, so slept for: 5 secs
+
+Nginx was unavailable, so slept for: 5 secs
+
+##########################################################
+
+SUCCESS, your new ADOP instance is ready!
+
+Run these commands in your shell:
+  source ./conf/env.provider.sh
+  source credentials.generate.sh
+  source env.config.sh
+
+You can check if any variables are missing with: ./adop compose config  | grep 'WARNING'
+
+Navigate to http://184.73.23.186 in your browser to use your new DevOps Platform!
+Login using the following credentials:
+  Username: venkat
+  Password: Forgot#1987
+Generate new private key and self-signed certificate...
+Copying certificates to the registry_certs volume...
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+d070b8ef96fc: Pulling fs layer
+d070b8ef96fc: Verifying Checksum
+d070b8ef96fc: Download complete
+d070b8ef96fc: Pull complete
+Digest: sha256:2107a35b58593c58ec5f4e8f2c4a70d195321078aebfadfbfb223a2ff4a4ed21
+Status: Downloaded newer image for busybox:latest
+e498f51d990e
+Copying certificates to the ADOP Proxy container...
+Copying self-signed certificate to the trusted location /etc/docker/certs.d/...
+Copying via docker-machine to the ADOPS-DEVOPS2...
+registry_fullchain.pem                                                                       100% 1842     2.8MB/s   00:00
+Enable registry NGINX configuration...
+Restart Docker Registry container with applied certificates...
+Restart ADOP Proxy container with updated certificates...
+Self-Signed certificates has been generated successfully...
+[ec2-user@ip-172-31-94-244 adop-docker-compose]$
