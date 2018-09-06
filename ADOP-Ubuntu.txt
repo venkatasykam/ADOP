@@ -10,7 +10,7 @@ git --version
 
 pip --version
 
-python --version or python3 --version
+python --version
 
 git clone https://github.com/Accenture/adop-docker-compose.git
 
