@@ -26,6 +26,8 @@ pip --version
 
 python --version
 
+### Step-5: Setup ADOP
+
 git clone https://github.com/Accenture/adop-docker-compose.git
 
 cd adop-docker-compose
