@@ -1,0 +1,34 @@
+DevOps Platform Setup:
+---------------------
+
+DevOps setup - setup on existing VM
+
+	Reference: https://accenture.github.io/adop-docker-compose/docs/provisioning/adop_cli/
+
+	1.1. Tools: git, docker, docker-compose should be installed on VM.
+
+	Ubuntu m4.xlarge 4 CPU - 16GB RAM: 
+	
+	git-docker: apt-get update && apt-get install git docker.io -y
+	docker-compose:
+	curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+
+	docker-compose version
+
+	1.2. Steps to install the ADOP tools:
+
+		git clone https://github.com/Accenture/adop-docker-compose.git
+		cd adop-docker-compose/
+
+		export INITIAL_ADMIN_USER=<username>
+		export INITIAL_ADMIN_PASSWORD_PLAIN=<password>
+
+		./adop compose init
+		
+		Note: Admin username & password should NOT be same and username should NOT be part of password.
+			ex: Username: admin , password: admin -- wrong
+			ex: Username: admin , password: admin@123 -- wrong
+			ex: Username: admin , password: devops@123 -- correct
+	
+	1.3. Launch the dashboard: http://[IP-Address] or http://[IP-Address]:80 (Port number 80 should be open to access DevOps dashboard). It will ask you to enter the INITIAL_ADMIN_USER, and INITIAL_ADMIN_PASSWORD_PLAIN.
