@@ -34,7 +34,9 @@ cd adop-docker-compose
 
 ./quickstart.sh -t aws -m ADOP-DEVOPS -c vpc-02389d534cfa38107 -r us-east-2 -z a -u docker-m -p DevOps@123 -a AKIAJZPIKZWDDADDPCZA -s v6Cdz6DxbJ4SBBXUL6+2FiOHInbKgymbelRVZK+W
 
-1. while getopts "t:m:a:s:c:z:r:u:p:h" opt;
+Internal execution process:
+
+1. while getopts `t:m:a:s:c:z:r:u:p:h` opt;
 
 2. if [ -z ${MACHINE_TYPE} ]; then
 
